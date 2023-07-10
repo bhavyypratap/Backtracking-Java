@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+//O(n!)
+public class backtrackingPermutation {
+    public static void permute(String st, String stnew) {
+        if (st.length() == 0) {
+            System.out.println(stnew);
+            return;
+        }
+        for (int i = 0; i < st.length(); i++) {
+            String str = st.substring(0, i) + st.substring(i + 1);
+            permute(str, stnew + st.charAt(i));
+        }
+        }
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter  string");
+        String st = sc.nextLine();
+        permute(st, "");
+    }
+}
